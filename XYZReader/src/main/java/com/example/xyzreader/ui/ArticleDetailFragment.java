@@ -1,7 +1,7 @@
 package com.example.xyzreader.ui;
 
-import android.app.Fragment;
-import android.app.LoaderManager;
+
+
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
@@ -17,6 +17,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
@@ -261,21 +265,47 @@ public class ArticleDetailFragment extends Fragment implements
         }
     }
 
+//    @Override
+//    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+//        return ArticleLoader.newInstanceForItemId(getActivity(), mItemId);
+//    }
+
+    @NonNull
     @Override
-    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+    public android.support.v4.content.Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
         return ArticleLoader.newInstanceForItemId(getActivity(), mItemId);
     }
 
+
+//    @Override
+//    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
+//        if (!isAdded()) {
+//            if (cursor != null) {
+//                cursor.close();
+//            }
+//            return;
+//        }
+//
+//        mCursor = cursor;
+//        if (mCursor != null && !mCursor.moveToFirst()) {
+//            Log.e(TAG, "Error reading item detail cursor");
+//            mCursor.close();
+//            mCursor = null;
+//        }
+//
+//        bindViews();
+//    }
+
     @Override
-    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
+    public void onLoadFinished(@NonNull android.support.v4.content.Loader<Cursor> loader, Cursor data) {
         if (!isAdded()) {
-            if (cursor != null) {
-                cursor.close();
+            if (data != null) {
+                data.close();
             }
             return;
         }
 
-        mCursor = cursor;
+        mCursor = data;
         if (mCursor != null && !mCursor.moveToFirst()) {
             Log.e(TAG, "Error reading item detail cursor");
             mCursor.close();
@@ -285,8 +315,14 @@ public class ArticleDetailFragment extends Fragment implements
         bindViews();
     }
 
+
+    //    @Override
+//    public void onLoaderReset(Loader<Cursor> cursorLoader) {
+//        mCursor = null;
+//        bindViews();
+//    }
     @Override
-    public void onLoaderReset(Loader<Cursor> cursorLoader) {
+    public void onLoaderReset(@NonNull android.support.v4.content.Loader<Cursor> loader) {
         mCursor = null;
         bindViews();
     }
