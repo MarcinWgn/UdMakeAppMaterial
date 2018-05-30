@@ -3,7 +3,6 @@ package com.example.xyzreader.ui;
 
 
 import android.content.Intent;
-import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -265,36 +264,11 @@ public class ArticleDetailFragment extends Fragment implements
         }
     }
 
-//    @Override
-//    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-//        return ArticleLoader.newInstanceForItemId(getActivity(), mItemId);
-//    }
-
     @NonNull
     @Override
     public android.support.v4.content.Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
         return ArticleLoader.newInstanceForItemId(getActivity(), mItemId);
     }
-
-
-//    @Override
-//    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-//        if (!isAdded()) {
-//            if (cursor != null) {
-//                cursor.close();
-//            }
-//            return;
-//        }
-//
-//        mCursor = cursor;
-//        if (mCursor != null && !mCursor.moveToFirst()) {
-//            Log.e(TAG, "Error reading item detail cursor");
-//            mCursor.close();
-//            mCursor = null;
-//        }
-//
-//        bindViews();
-//    }
 
     @Override
     public void onLoadFinished(@NonNull android.support.v4.content.Loader<Cursor> loader, Cursor data) {
@@ -314,13 +288,6 @@ public class ArticleDetailFragment extends Fragment implements
 
         bindViews();
     }
-
-
-    //    @Override
-//    public void onLoaderReset(Loader<Cursor> cursorLoader) {
-//        mCursor = null;
-//        bindViews();
-//    }
     @Override
     public void onLoaderReset(@NonNull android.support.v4.content.Loader<Cursor> loader) {
         mCursor = null;
