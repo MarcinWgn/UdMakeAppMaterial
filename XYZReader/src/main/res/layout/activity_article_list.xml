@@ -7,13 +7,7 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/toolbar_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="?colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+        android:layout_height="wrap_content">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -21,7 +15,8 @@
                 android:layout_marginLeft="@dimen/list_toolbar_side_margin"
                 android:layout_marginRight="@dimen/list_toolbar_side_margin"
                 android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
+                android:layout_height="100dp"
+                app:layout_scrollFlags="scroll|enterAlways"
                 android:layout_gravity="bottom">
                 <ImageView
                     android:layout_width="wrap_content"
@@ -30,7 +25,6 @@
                     android:contentDescription="@string/app_name" />
 
             </android.support.v7.widget.Toolbar>
-        </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.widget.SwipeRefreshLayout

@@ -40,7 +40,6 @@ public class ArticleListActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final String TAG = ArticleListActivity.class.toString();
-    private Toolbar mToolbar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
 
@@ -55,12 +54,13 @@ public class ArticleListActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
 
-        mToolbar =findViewById(R.id.toolbar);
-
-        setSupportActionBar(mToolbar);
-
         mSwipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
-
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh();
+            }
+        });
 
 
         mRecyclerView = findViewById(R.id.recycler_view);
@@ -70,13 +70,7 @@ public class ArticleListActivity extends AppCompatActivity implements
             refresh();
         }
 
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                Log.d(TAG, "###########");
-                getSupportLoaderManager().restartLoader(0,null,ArticleListActivity.this);
-            }
-        });
+
     }
 
     private void refresh() {
@@ -104,8 +98,6 @@ public class ArticleListActivity extends AppCompatActivity implements
             if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
                 mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
                 updateRefreshingUI();
-
-                Log.d(TAG, "Refresh");
             }
         }
     };

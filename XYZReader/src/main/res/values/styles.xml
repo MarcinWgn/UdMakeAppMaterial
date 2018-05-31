@@ -17,10 +17,32 @@
 
 <resources>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CardTitleStyle">
+        <item name="android:textSize">@dimen/cards_title_size</item>
+        <item name="android:maxLines">4</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingBottom">@dimen/cards_padding_min</item>
+        <item name="android:paddingLeft">@dimen/cards_padding_def</item>
+        <item name="android:paddingRight">@dimen/cards_padding_def</item>
+        <item name="android:paddingTop">@dimen/cards_padding_def</item>
+    </style>
+
+    <style name="CardSubtitleStyle">
+        <item name="android:textSize">@dimen/cards_subtitle_size</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingBottom">@dimen/cards_padding_min</item>
+        <item name="android:paddingLeft">@dimen/cards_padding_def</item>
+        <item name="android:paddingRight">@dimen/cards_padding_def</item>
     </style>
 
 </resources>
