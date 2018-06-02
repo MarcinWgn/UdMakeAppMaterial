@@ -42,8 +42,11 @@ public class UpdaterService extends IntentService {
             Log.w(TAG, "Not online, not refreshing.");
             return;
         }
-
-        sendStickyBroadcast(
+// TODO: 01.06.2018  
+//        sendStickyBroadcast(
+//                new Intent(BROADCAST_ACTION_STATE_CHANGE).putExtra(EXTRA_REFRESHING, true));
+        
+        sendBroadcast(
                 new Intent(BROADCAST_ACTION_STATE_CHANGE).putExtra(EXTRA_REFRESHING, true));
 
         // Don't even inspect the intent, we only do one thing, and that's fetch content.
@@ -79,8 +82,11 @@ public class UpdaterService extends IntentService {
         } catch (JSONException | RemoteException | OperationApplicationException e) {
             Log.e(TAG, "Error updating content.", e);
         }
-
-        sendStickyBroadcast(
+// TODO: 01.06.2018
+//        sendStickyBroadcast(
+//                new Intent(BROADCAST_ACTION_STATE_CHANGE).putExtra(EXTRA_REFRESHING, false));
+        Log.d(TAG, "send brodcast");
+        sendBroadcast(
                 new Intent(BROADCAST_ACTION_STATE_CHANGE).putExtra(EXTRA_REFRESHING, false));
     }
 }
