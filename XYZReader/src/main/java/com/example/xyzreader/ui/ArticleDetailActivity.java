@@ -136,6 +136,7 @@ public class ArticleDetailActivity extends AppCompatActivity
 
         @Override
         public int getCount() {
+
             return (mCursor != null) ? mCursor.getCount() : 0;
         }
     }
