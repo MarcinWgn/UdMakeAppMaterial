@@ -69,6 +69,8 @@ public class ArticleDetailFragment extends Fragment implements
     private boolean mIsCard = false;
     private int mStatusBarFullOpacityBottom;
 
+    private Toolbar toolbar;
+
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss");
     // Use default locale format
     private SimpleDateFormat outputFormat = new SimpleDateFormat();
@@ -143,6 +145,7 @@ public class ArticleDetailFragment extends Fragment implements
         });
 
         bindViews();
+        setActionBar(toolbar);
         return mRootView;
     }
 
@@ -166,6 +169,7 @@ public class ArticleDetailFragment extends Fragment implements
         TextView bylineView = mRootView.findViewById(R.id.article_byline);
         bylineView.setMovementMethod(new LinkMovementMethod());
         TextView bodyView = mRootView.findViewById(R.id.article_body);
+        toolbar = mRootView.findViewById(R.id.detail_toolbar);
 
 
 
@@ -214,7 +218,6 @@ public class ArticleDetailFragment extends Fragment implements
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
                                 mRootView.findViewById(R.id.meta_bar)
                                         .setBackgroundColor(mMutedColor);
-//                                updateStatusBar();
                             }
                         }
 
@@ -231,6 +234,15 @@ public class ArticleDetailFragment extends Fragment implements
             bodyView.setText("N/A");
         }
     }
+
+    private void setActionBar(Toolbar detailToolbar) {
+        ((AppCompatActivity) getActivity()).setSupportActionBar(detailToolbar);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+    }
+
+
 
     @NonNull
     @Override
