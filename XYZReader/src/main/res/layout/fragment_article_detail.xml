@@ -2,16 +2,15 @@
     android:id="@+id/draw_insets_frame_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:fitsSystemWindows="true">
+        android:layout_height="320dp">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
@@ -26,7 +25,6 @@
                 android:id="@+id/photo_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
                 app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title">
                 <!--suppress AndroidLintContentDescription -->
                 <ImageView
@@ -78,7 +76,6 @@
                 android:addStatesFromChildren="true"
                 android:clipChildren="true"
                 android:duplicateParentState="true"
-                android:fitsSystemWindows="true"
                 android:focusableInTouchMode="true"
                 app:buttonGravity="bottom"
                 app:layout_collapseMode="pin"

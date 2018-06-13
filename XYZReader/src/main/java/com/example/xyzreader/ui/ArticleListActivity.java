@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
@@ -40,6 +41,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final String TAG = ArticleListActivity.class.toString();
+    public static final String POSITION = "position";
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
 
@@ -60,7 +62,9 @@ public class ArticleListActivity extends AppCompatActivity implements
             public void onRefresh() {
                 refresh();
             }
+
         });
+
 
 
         mRecyclerView = findViewById(R.id.recycler_view);
@@ -147,8 +151,12 @@ public class ArticleListActivity extends AppCompatActivity implements
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
+                    if(!mIsRefreshing){
+                        startActivity(new Intent(Intent.ACTION_VIEW,
+                                ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
+                    } else
+                        Toast.makeText(getBaseContext(), R.string.wait, Toast.LENGTH_SHORT)
+                                .show();
                 }
             });
             return vh;
