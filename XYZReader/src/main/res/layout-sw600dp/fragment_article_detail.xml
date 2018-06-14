@@ -2,6 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -9,12 +10,12 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="320dp">
+        android:layout_height="wrap_content">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -29,7 +30,7 @@
                 <ImageView
                     android:id="@+id/photo"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     app:layout_collapseMode="parallax"
                     android:scaleType="centerCrop"
                     />
@@ -38,63 +39,24 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/photo_background_protection" />
 
-                <LinearLayout
-                    android:id="@+id/meta_bar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:padding="@dimen/margin_min"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/article_title"
-                        style="?android:attr/textAppearanceLarge"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:maxLines="1"
-                        android:textSize="@dimen/detail_title_text_size"
-                        android:paddingStart="@dimen/margin_min"
-                        android:paddingEnd="@dimen/margin_min"
-                        android:lineSpacingMultiplier="0.9"
-                        tools:text="title"/>
-
-                    <TextView
-                        android:id="@+id/article_byline"
-                        style="?android:attr/textAppearanceSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="@dimen/margin_min"
-                        android:paddingEnd="@dimen/margin_min"
-                        android:textColor="@color/txt_gray"
-                        tools:text="article"/>
-                </LinearLayout>
             </android.support.design.widget.CoordinatorLayout>
-
             <android.support.v7.widget.Toolbar
                 android:id="@+id/detail_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:addStatesFromChildren="true"
-                android:clipChildren="true"
-                android:duplicateParentState="true"
-                android:focusableInTouchMode="true"
-                app:buttonGravity="bottom"
                 app:layout_collapseMode="pin"
                 app:layout_scrollFlags="scroll|enterAlways" />
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_scrolling" />
+    <include layout="@layout/content_scrolling"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/share_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@id/appBar"
+        app:layout_anchor="@+id/appBar"
         app:layout_anchorGravity="bottom|end"
         app:srcCompat="@drawable/ic_share" />
 

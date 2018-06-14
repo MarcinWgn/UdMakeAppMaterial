@@ -11,7 +11,11 @@
     <dimen name="cards_padding_def">16dp</dimen>
     <dimen name="cards_padding_min">16dp</dimen>
     <dimen name="margin_min">4dp</dimen>
-    <dimen name="cards_title_size">14sp</dimen>
+    <dimen name="margin">8dp</dimen>
+    <dimen name="margin_max">32dp</dimen>
+    <dimen name="cards_title_size">16sp</dimen>
     <dimen name="cards_subtitle_size">12sp</dimen>
+    <dimen name="cards_elevation">6dp</dimen>
+    <dimen name="corner_radious">8dp</dimen>
 
 </resources>
