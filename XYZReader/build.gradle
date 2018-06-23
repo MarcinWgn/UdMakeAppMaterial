@@ -42,4 +42,5 @@ dependencies {
     implementation "com.android.support:transition:$androidSupportVersion"
     implementation "com.squareup.okhttp3:okhttp:3.10.0"
     implementation files('libs/volley.jar')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 }

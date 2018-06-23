@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView
     android:id="@+id/content_view"
-    android:layout_width="420dp"
+    android:layout_width="500dp"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
+    android:layout_gravity="fill_vertical"
     app:behavior_overlapTop="120dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,8 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="@dimen/cards_elevation"
-        app:cardCornerRadius="@dimen/corner_radious"
-        >
+        app:cardCornerRadius="@dimen/corner_radious">
 
         <LinearLayout
             android:id="@+id/linear_layout"
@@ -69,5 +68,4 @@
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
-
 </android.support.v4.widget.NestedScrollView>
