@@ -24,4 +24,5 @@
     <color name="ltgray">#ffe0e0e0</color>
     <color name="white">#FFFFFFFF</color>
     <color name="txt_gray">#8fff</color>
+    <color name="def_color">#FF333333</color>
 </resources>

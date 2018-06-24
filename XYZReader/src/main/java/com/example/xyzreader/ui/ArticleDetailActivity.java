@@ -1,10 +1,7 @@
 package com.example.xyzreader.ui;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.transition.Slide;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Gravity;
 
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ItemsContract;
